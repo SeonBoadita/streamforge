@@ -53,7 +53,7 @@ export default function BellIcon({count = 0}:{count?: number}) {
         open={!!anchorEl}
         onClose={() => setAnchorEl(null)}
         width="400px"
-        menuName = "notification"
+        menuName = "notifications"
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'right',

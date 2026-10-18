@@ -1,5 +1,6 @@
 import { Box, Menu, MenuItem, Stack } from "@mui/material";
 import type { PopoverOrigin } from "@mui/material/Popover";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { CommonButton } from "@/components/common";
 
 type MenuItemType = {
@@ -86,7 +87,7 @@ export default function CommonMenu({
                 }}
             >
                 {
-                    menuName === "notification" && (
+                    menuName === "notifications" && (
                         <>
                         <Stack
                         sx={{
@@ -110,6 +111,11 @@ export default function CommonMenu({
                                 fontSize: 12,
                                 fontWeight: 200,
                                 whiteSpace: "nowrap",
+                                color: "primary.main",
+                                cursor: "pointer",
+                                "&:hover": {
+                                    textDecoration: "underline",
+                                }
                             }}
                             >Mark all read</Box>
                         </Stack>
@@ -218,6 +224,8 @@ export default function CommonMenu({
             {menuName === "notifications" && <CommonButton
             width="100%"
             text="View all notifications"
+            endIcon = {<ArrowRightIcon />}
+            endIconEnabled = {true}
             />}
         </Menu>
     );
