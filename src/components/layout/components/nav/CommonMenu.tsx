@@ -119,7 +119,7 @@ export default function CommonMenu({
                 }
                 {menuName === "profile" && (
                     <>
-                        <Box sx={{ flexShrink: 0 }}>
+                        <Box sx={{ flexShrink: 0, pointerEvent: "none" }}>
                             <Profile />
                         </Box>
 
