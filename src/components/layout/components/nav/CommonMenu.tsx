@@ -1,6 +1,5 @@
 import { Box, Menu, MenuItem, Stack } from "@mui/material";
 import type { PopoverOrigin } from "@mui/material/Popover";
-import Profile from "./Profile";
 import { CommonButton } from "@/components/common";
 
 type MenuItemType = {
@@ -119,9 +118,22 @@ export default function CommonMenu({
                 }
                 {menuName === "profile" && (
                     <>
-                        <Box sx={{ flexShrink: 0, pointerEvent: "none" }}>
-                            <Profile />
-                        </Box>
+                        <Stack
+                            sx={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                                flexShrink: 0,
+                                width: 35,
+                                height: 35,
+                                border: "1px solid",
+                                borderColor: "primary.main",
+                                borderRadius: "50%",
+                                color: "primary.main",
+                                fontSize: 15,
+                            }}
+                        >
+                            S
+                        </Stack>
 
                         <Box
                             sx={{
