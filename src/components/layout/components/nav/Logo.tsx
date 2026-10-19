@@ -22,6 +22,12 @@ export default function Logo() {
                 <Box
                     className='logo-text'
                     component="h4"
+                    sx={{
+                        display: {
+                            sm: "inline",
+                            xs: "none",
+                        }
+                    }}
                 >
                     <Box
                     sx={{

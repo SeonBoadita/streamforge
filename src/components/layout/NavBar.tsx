@@ -1,3 +1,5 @@
+
+"use client";
 import { AppBar, Box, IconButton, Stack, Toolbar } from '@mui/material'
 import React from 'react'
 import CommonSearchBar from '../common/CommonSearchBar'
@@ -9,6 +11,40 @@ import { isCreator, isAdmin } from '@/constants';
 import { BellIcon, Logo, Profile } from './components/nav';
 
 export default function NavBar() {
+
+
+    const [showSearchBar, setShowSearchBar] = React.useState(false);
+
+    const handleSearchClick = () => {
+        setShowSearchBar(true);
+    }
+
+    const searchBarRef = React.useRef<HTMLDivElement>(null);
+
+    React.useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                searchBarRef.current &&
+                !searchBarRef.current.contains(event.target as Node)
+            ) {
+                setShowSearchBar(false);
+            }
+        };
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape" || event.key === "Enter") {
+                setShowSearchBar(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, []);
     return (
         <>
             <AppBar
@@ -25,32 +61,78 @@ export default function NavBar() {
                 <Toolbar>
                     <Stack
                         direction="row"
-                        spacing={10}
+                        spacing={{
+                            sm: 10,
+                            xs: 3
+                        }}
                         sx={{
                             width: '100%',
                             alignItems: 'center',
                             justifyContent: 'space-between',
                         }}
                     >
-                        <Logo />
+                        <Box>
+                            <Logo />
+                        </Box>
 
                         <Box
                             sx={{
                                 flex: 2,
                                 display: {
-                                    sm: "flex",
-                                    xs: "none",
-                                }
+                                    xs: "flex",
+                                },
+                                opacity: {
+                                    xs: showSearchBar ? 1 : 0,
+                                    sm: 1,
+                                },
+                                transform: {
+                                    xs: showSearchBar ? "translateX(0)" : "translateX(20px)",
+                                    sm: "translateX(0)",
+                                },
+                                transition: "opacity 250ms ease, transform 250ms ease",
+                                pointerEvents: {
+                                    xs: showSearchBar ? "auto" : "none",
+                                    sm: "auto",
+                                },
+
                             }}
+                            ref={searchBarRef}
                         >
                             <CommonSearchBar />
                         </Box>
 
                         <Stack
                             direction="row"
-                            spacing={2}>
-                            
+                            spacing={2}
+                            sx={{
+                                display: {
+                                    xs: "flex",
+                                    md: "none",
+                                },
+                                opacity: {
+                                    xs: showSearchBar ? 0 : 1,
+                                    sm: 1,
+                                    md: 0,
+                                },
+                                maxWidth: {
+                                    xs: showSearchBar ? 0 : "100%",
+                                    sm: "100%",
+                                    md: 0,
+                                },
+                                transform: {
+                                    xs: showSearchBar ? "translateX(20px)" : "translateX(0)",
+                                    sm: "translateX(0)",
+                                },
+                                transition: "transform 250ms ease",
+                                pointerEvents: {
+                                    xs: showSearchBar ? "none" : "auto",
+                                    sm: "auto",
+                                    md: "none",
+                                },
+                            }}
+                        >
                             <IconButton
+                                onClick={handleSearchClick}
                                 sx={{
                                     display: {
                                         sm: "none",
@@ -66,8 +148,9 @@ export default function NavBar() {
                             <IconButton
                                 sx={{
                                     display: {
-                                        md: "none",
                                         xs: "flex",
+                                        sm: "flex",
+                                        md: "none",
                                     }
                                 }}
                             >
@@ -111,4 +194,3 @@ export default function NavBar() {
         </>
     )
 }
-
