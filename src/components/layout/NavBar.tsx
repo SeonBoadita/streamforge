@@ -8,15 +8,20 @@ import AddIcon from "@mui/icons-material/Add";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { isCreator, isAdmin } from '@/constants';
-import { BellIcon, Logo, Profile } from './components/nav';
+import { BellIcon, Logo, MobileMenu, Profile } from './components/nav';
 
 export default function NavBar() {
 
 
     const [showSearchBar, setShowSearchBar] = React.useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
     const handleSearchClick = () => {
         setShowSearchBar(true);
+    }
+
+    const handleMobileMenuToggle = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
     }
 
     const searchBarRef = React.useRef<HTMLDivElement>(null);
@@ -56,6 +61,7 @@ export default function NavBar() {
                     width: '100%',
                     color: 'primary.main',
                     backgroundColor: 'primary.contrastText',
+                    overflow: 'hidden',
                 }}
             >
                 <Toolbar>
@@ -146,6 +152,7 @@ export default function NavBar() {
                                 />
                             </IconButton>
                             <IconButton
+                            onClick={() => {handleMobileMenuToggle()}}
                                 sx={{
                                     display: {
                                         xs: "flex",
@@ -191,6 +198,13 @@ export default function NavBar() {
                     </Stack>
                 </Toolbar>
             </AppBar>
+
+            <Box>
+                <MobileMenu
+                    isMobileMenuOpen={isMobileMenuOpen}
+                    setIsMobileMenuOpen={setIsMobileMenuOpen}
+                />
+            </Box>
         </>
     )
 }
