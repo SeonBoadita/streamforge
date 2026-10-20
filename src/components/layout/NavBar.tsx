@@ -15,6 +15,7 @@ export default function NavBar() {
 
     const [showSearchBar, setShowSearchBar] = React.useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+    const mobileMenuTriggerRef = React.useRef<HTMLButtonElement>(null);
 
     const handleSearchClick = () => {
         setShowSearchBar(true);
@@ -152,7 +153,8 @@ export default function NavBar() {
                                 />
                             </IconButton>
                             <IconButton
-                            onClick={() => {handleMobileMenuToggle()}}
+                            ref={mobileMenuTriggerRef}
+                            onClick={handleMobileMenuToggle}
                                 sx={{
                                     display: {
                                         xs: "flex",
@@ -203,6 +205,7 @@ export default function NavBar() {
                 <MobileMenu
                     isMobileMenuOpen={isMobileMenuOpen}
                     setIsMobileMenuOpen={setIsMobileMenuOpen}
+                    menuTriggerRef={mobileMenuTriggerRef}
                 />
             </Box>
         </>

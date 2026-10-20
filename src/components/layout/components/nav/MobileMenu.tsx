@@ -6,16 +6,18 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import NavProfile from "./NavProfile";
-import { useEffect, useRef } from "react";
+import { RefObject, useEffect, useRef } from "react";
 
 interface MobileMenuProps {
     isMobileMenuOpen: boolean;
     setIsMobileMenuOpen: (isOpen: boolean) => void;
+    menuTriggerRef: RefObject<HTMLButtonElement | null>;
 }
 
 export default function MobileMenu({
     isMobileMenuOpen,
-    setIsMobileMenuOpen
+    setIsMobileMenuOpen,
+    menuTriggerRef
 }: MobileMenuProps) {
     const menuRef = useRef<HTMLDivElement>(null);
 
@@ -23,9 +25,10 @@ export default function MobileMenu({
         const handleClickOutside = (event: MouseEvent) => {
             if (
                 menuRef.current &&
-                !menuRef.current.contains(event.target as Node)
+                !menuRef.current.contains(event.target as Node) &&
+                !menuTriggerRef.current?.contains(event.target as Node)
             ) {
-                    setIsMobileMenuOpen(false);
+                setIsMobileMenuOpen(false);
             }
         };
 
@@ -36,7 +39,7 @@ export default function MobileMenu({
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [isMobileMenuOpen, setIsMobileMenuOpen]);
+    }, [isMobileMenuOpen, menuTriggerRef, setIsMobileMenuOpen]);
 
     return (
         <>
