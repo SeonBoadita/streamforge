@@ -9,7 +9,9 @@ export default function CommonSearchBar() {
             variant="outlined"
             onKeyDown={(event) => {
                 if (event.key === "Enter") {
-                    event.currentTarget.blur();
+                    if (event.target instanceof HTMLElement) {
+                        event.target.blur();
+                    }
                 }
             }}
             sx={{
