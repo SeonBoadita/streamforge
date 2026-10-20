@@ -2,8 +2,10 @@
 
 import { Box, IconButton } from "@mui/material";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import CircleNotificationsOutlinedIcon from "@mui/icons-material/CircleNotificationsOutlined";
 import CommonMenu from "./CommonMenu";
 import { useState } from "react";
+
 
 export default function BellIcon({count = 0}:{count?: number}) {
   
@@ -67,13 +69,17 @@ export default function BellIcon({count = 0}:{count?: number}) {
             label: 'Notification 1',
             onClick: () => {
               console.log('Notification 1 clicked');
-            }
+            },
+            description: 'This is the first notification',
+            icon: <CircleNotificationsOutlinedIcon />,
           },
           {
             label: 'Notification 2',
             onClick: () => {
               console.log('Notification 2 clicked');
           },
+            description: 'This is the second notification',
+            icon: <CircleNotificationsOutlinedIcon />,
           },
         ]}
       />

@@ -2,11 +2,15 @@ import { Box, Menu, MenuItem, Stack } from "@mui/material";
 import type { PopoverOrigin } from "@mui/material/Popover";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { CommonButton } from "@/components/common";
+import { alpha } from "@mui/material/styles";
+import NavProfile from "./NavProfile";
 
 type MenuItemType = {
     label: string;
     onClick: () => void;
     icon?: React.ReactNode;
+    description?: string | null;
+    type?: "default" | "danger";
 };
 
 type CommonMenuProps = {
@@ -17,7 +21,7 @@ type CommonMenuProps = {
     width?: string;
     anchorOrigin?: PopoverOrigin;
     transformOrigin?: PopoverOrigin;
-    menuName?: string;
+    menuName: "notifications" | "profile";
 };
 
 export default function CommonMenu({
@@ -30,8 +34,6 @@ export default function CommonMenu({
     transformOrigin,
     menuName,
 }: CommonMenuProps) {
-    const nameFromRedux = "Seon";
-    const emailFromRedux = "seonboadita@gmail.com";
 
     return (
         <Menu
@@ -89,70 +91,12 @@ export default function CommonMenu({
                 {
                     menuName === "notifications" && (
                         <>
-                        <Stack
-                        sx={{
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            flexDirection: "row",
-                            width: "100%",
-                        }}
-                        >
-                            <Box
-                            component="span"
-                            sx={{
-                                fontSize: 14,
-                                fontWeight: 600,
-                                whiteSpace: "nowrap"
-                            }}
-                            >Notification (10)</Box>
-                            <Box
-                            component="span"
-                            sx={{
-                                fontSize: 12,
-                                fontWeight: 200,
-                                whiteSpace: "nowrap",
-                                color: "primary.main",
-                                cursor: "pointer",
-                                "&:hover": {
-                                    textDecoration: "underline",
-                                }
-                            }}
-                            >Mark all read</Box>
-                        </Stack>
-                        </>
-                    )
-                }
-                {menuName === "profile" && (
-                    <>
-                        <Stack
-                            sx={{
-                                alignItems: "center",
-                                justifyContent: "center",
-                                flexShrink: 0,
-                                width: 35,
-                                height: 35,
-                                border: "1px solid",
-                                borderColor: "primary.main",
-                                borderRadius: "50%",
-                                color: "primary.main",
-                                fontSize: 15,
-                            }}
-                        >
-                            S
-                        </Stack>
-
-                        <Box
-                            sx={{
-                                minWidth: 0,
-                                flex: 1,
-                                ml: 1,
-                            }}
-                        >
                             <Stack
                                 sx={{
-                                    alignItems: "flex-start",
-                                    justifyContent: "center",
-                                    minWidth: 0,
+                                    alignItems: "center",
+                                    justifyContent: "space-between",
+                                    flexDirection: "row",
+                                    width: "100%",
                                 }}
                             >
                                 <Box
@@ -160,31 +104,28 @@ export default function CommonMenu({
                                     sx={{
                                         fontSize: 14,
                                         fontWeight: 600,
-                                        width: "100%",
-                                        overflow: "hidden",
-                                        textOverflow: "ellipsis",
-                                        whiteSpace: "nowrap",
+                                        whiteSpace: "nowrap"
                                     }}
-                                >
-                                    {nameFromRedux}
-                                </Box>
-
+                                >Notification (10)</Box>
                                 <Box
                                     component="span"
                                     sx={{
                                         fontSize: 12,
-                                        color: "text.secondary",
-                                        width: "100%",
-                                        overflow: "hidden",
-                                        textOverflow: "ellipsis",
+                                        fontWeight: 200,
                                         whiteSpace: "nowrap",
+                                        color: "primary.main",
+                                        cursor: "pointer",
+                                        "&:hover": {
+                                            textDecoration: "underline",
+                                        }
                                     }}
-                                >
-                                    {emailFromRedux}
-                                </Box>
+                                >Mark all read</Box>
                             </Stack>
-                        </Box>
-                    </>
+                        </>
+                    )
+                }
+                {menuName === "profile" && (
+                    <NavProfile />
                 )}
             </Stack>
 
@@ -198,10 +139,29 @@ export default function CommonMenu({
                         alignItems: "center",
                         gap: 1,
                         fontSize: 14,
-
                         "&:hover": {
                             color: "primary.main",
                         },
+                        ...(item.type === "danger" && {
+                            color: "error.main",
+                            position: "relative",
+                            "&:hover": {
+                                color: "error.dark",
+                                backgroundColor: (theme) =>
+                                    alpha(theme.palette.error.main, 0.08),
+                            },
+                            "&::before": {
+                                content: "''",
+                                position: "absolute",
+                                left: 0,
+                                top: 0,
+                                width: "100%",
+                                height: "1px",
+                                backgroundColor: "error.main",
+                                transform: "scaleY(0.25)",
+                                transformOrigin: "top",
+                            }
+                        })
                     }}
                 >
                     {item.icon && (
@@ -213,19 +173,39 @@ export default function CommonMenu({
                                 mr: 0.5,
                             }}
                         >
-                            {item.icon}
+                            <Box>
+                                {item.icon}
+                            </Box>
                         </Box>
                     )}
-
-                    {item.label}
+                    <Stack>
+                        <Box>
+                            {item.label}
+                        </Box>
+                        {
+                            item.description && (
+                                <Box
+                                    sx={{
+                                        fontSize: 12,
+                                        color: "text.secondary",
+                                        overflow: "hidden",
+                                        textOverflow: "ellipsis",
+                                        whiteSpace: "nowrap",
+                                    }}
+                                >
+                                    {item.description}
+                                </Box>
+                            )
+                        }
+                    </Stack>
                 </MenuItem>
             ))}
 
             {menuName === "notifications" && <CommonButton
-            width="100%"
-            text="View all notifications"
-            endIcon = {<ArrowRightIcon />}
-            endIconEnabled = {true}
+                width="100%"
+                text="View all notifications"
+                endIcon={<ArrowRightIcon />}
+                endIconEnabled={true}
             />}
         </Menu>
     );

@@ -89,6 +89,7 @@ export default function Profile() {
                         label: "Logout",
                         icon: <LogoutIcon />,
                         onClick: () => console.log("Logout"),
+                        type: "danger",
                     },
                 ]}
             />
