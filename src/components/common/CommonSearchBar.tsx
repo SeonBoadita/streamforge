@@ -9,9 +9,7 @@ export default function CommonSearchBar() {
             variant="outlined"
             onKeyDown={(event) => {
                 if (event.key === "Enter") {
-                    if (event.target instanceof HTMLElement) {
-                        event.target.blur();
-                    }
+                    (event.target as HTMLInputElement).blur();
                 }
             }}
             sx={{
@@ -21,7 +19,7 @@ export default function CommonSearchBar() {
                     height: "35px",
                     border: "1px solid",
                     borderColor: "primary.main",
-                    fontSize: 14     
+                    fontSize: 14
                 },
             }}
             slotProps={{
@@ -29,9 +27,9 @@ export default function CommonSearchBar() {
                     startAdornment: (
                         <InputAdornment position="start">
                             <SearchIcon
-                            sx={{
-                                fontSize: 25,
-                            }}
+                                sx={{
+                                    fontSize: 25,
+                                }}
                             />
                         </InputAdornment>
                     ),
