@@ -7,6 +7,11 @@ export default function CommonSearchBar() {
             fullWidth
             placeholder="Search streams, creators, videos..."
             variant="outlined"
+            onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                    event.currentTarget.blur();
+                }
+            }}
             sx={{
                 "& .MuiOutlinedInput-root": {
                     borderRadius: "200px",
