@@ -1,6 +1,11 @@
 import type { CSSProperties } from "react";
+import type { ResponsiveStyleValue } from "@mui/system";
 
-type TypographyGroup = Record<string, CSSProperties>;
+type TypographyStyle = Omit<CSSProperties, "fontSize"> & {
+    fontSize?: ResponsiveStyleValue<CSSProperties["fontSize"]>;
+};
+
+type TypographyGroup = Record<string, TypographyStyle>;
 
 declare module "@mui/material/styles" {
     interface TypographyVariants {
@@ -103,26 +108,31 @@ export const typography = {
             fontWeight: 600,
             lineHeight: 1.2,
         },
+
         item: {
             fontSize: "0.875rem",
             fontWeight: 400,
             lineHeight: 1.43,
         },
+
         itemStrong: {
             fontSize: "0.875rem",
             fontWeight: 600,
             lineHeight: 1.43,
         },
+
         meta: {
             fontSize: "0.75rem",
             fontWeight: 400,
             lineHeight: 1.33,
         },
+
         menuAction: {
             fontSize: "0.75rem",
             fontWeight: 500,
             lineHeight: 1.33,
         },
+
         badge: {
             fontSize: "0.75rem",
             fontWeight: 600,
@@ -140,17 +150,20 @@ export const typography = {
             },
             fontWeight: 600,
         },
+
         title: {
             fontSize: "1.25rem",
             fontWeight: 600,
         },
+
         subtitle: {
             fontSize: "1rem",
             fontWeight: 500,
         },
+
         text: {
             fontSize: "0.75rem",
             fontWeight: 400,
-        }
-    }
+        },
+    },
 };
