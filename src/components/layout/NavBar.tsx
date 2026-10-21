@@ -1,6 +1,6 @@
 
 "use client";
-import { AppBar, Box, IconButton, Stack, Toolbar } from '@mui/material'
+import { alpha, AppBar, Box, IconButton, Stack, Toolbar } from '@mui/material'
 import React from 'react'
 import CommonSearchBar from '../common/CommonSearchBar'
 import { CommonButton } from '../common'
@@ -58,11 +58,14 @@ export default function NavBar() {
                 color="primary"
                 elevation={5}
                 sx={{
+                    zIndex: 1000,
                     height: 60,
                     width: '100%',
                     color: 'primary.main',
                     backgroundColor: 'primary.contrastText',
                     overflow: 'hidden',
+                    borderBottom: '1px solid',
+                    borderColor: (theme) => alpha(theme.palette.primary.main, 0.2),
                 }}
             >
                 <Toolbar>
@@ -153,8 +156,8 @@ export default function NavBar() {
                                 />
                             </IconButton>
                             <IconButton
-                            ref={mobileMenuTriggerRef}
-                            onClick={handleMobileMenuToggle}
+                                ref={mobileMenuTriggerRef}
+                                onClick={handleMobileMenuToggle}
                                 sx={{
                                     display: {
                                         xs: "flex",

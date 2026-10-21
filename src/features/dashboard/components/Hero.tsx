@@ -32,7 +32,7 @@ export default function Hero() {
                         sm: 'row',
                         xs: 'column',
                     },
-                    gap: 4,
+                    gap: 3,
                     alignItems: 'center',
                     justifyContent: 'space-between',
                 }}

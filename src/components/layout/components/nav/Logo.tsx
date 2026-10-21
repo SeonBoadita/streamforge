@@ -22,8 +22,8 @@ export default function Logo() {
                 ></Box>
                 <Box
                     className='logo-text'
-                    component="h4"
                     sx={{
+                        fontSize: '1.3rem',
                         display: {
                             sm: "inline",
                             xs: "none",
