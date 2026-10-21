@@ -6,6 +6,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useState } from "react";
 import { CommonMenu } from "@/components/layout/components/nav";
+import { typography } from "@/themes/typography";
 
 export default function Profile() {
     const valueFromStore = "Seon";
@@ -37,7 +38,7 @@ export default function Profile() {
                         height: 35,
                         border: "1px solid",
                         borderColor: "primary.main",
-                        fontSize: 15,
+                        ...typography.nav.item,
                         overflow: "hidden",
                     }}
                 >

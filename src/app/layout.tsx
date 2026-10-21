@@ -3,6 +3,7 @@ import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import Provider from "./Provider";
 import { Poppins } from "next/font/google";
+import { NavBar } from "@/components/layout";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className={poppins.className}>
         <AppRouterCacheProvider>
           <Provider>
+            <NavBar />
             {children}  
           </Provider>
         </AppRouterCacheProvider>

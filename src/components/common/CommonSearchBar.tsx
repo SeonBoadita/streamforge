@@ -1,5 +1,6 @@
 import SearchIcon from "@mui/icons-material/Search";
 import { InputAdornment, TextField } from "@mui/material";
+import { typography } from "@/themes/typography";
 
 export default function CommonSearchBar() {
     return (
@@ -19,7 +20,7 @@ export default function CommonSearchBar() {
                     height: "35px",
                     border: "1px solid",
                     borderColor: "primary.main",
-                    fontSize: 14
+                    ...typography.nav.item,
                 },
             }}
             slotProps={{

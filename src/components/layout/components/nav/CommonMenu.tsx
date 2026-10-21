@@ -4,6 +4,7 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { CommonButton } from "@/components/common";
 import { alpha } from "@mui/material/styles";
 import NavProfile from "./NavProfile";
+import { typography } from "@/themes/typography";
 
 type MenuItemType = {
     label: string;
@@ -102,16 +103,14 @@ export default function CommonMenu({
                                 <Box
                                     component="span"
                                     sx={{
-                                        fontSize: 14,
-                                        fontWeight: 600,
+                                        ...typography.nav.itemStrong,
                                         whiteSpace: "nowrap"
                                     }}
                                 >Notification (10)</Box>
                                 <Box
                                     component="span"
                                     sx={{
-                                        fontSize: 12,
-                                        fontWeight: 200,
+                                        ...typography.nav.menuAction,
                                         whiteSpace: "nowrap",
                                         color: "primary.main",
                                         cursor: "pointer",
@@ -138,7 +137,7 @@ export default function CommonMenu({
                         display: "flex",
                         alignItems: "center",
                         gap: 1,
-                        fontSize: 14,
+                        ...typography.nav.item,
                         "&:hover": {
                             color: "primary.main",
                         },
@@ -169,7 +168,7 @@ export default function CommonMenu({
                             sx={{
                                 display: "flex",
                                 alignItems: "center",
-                                fontSize: 12,
+                                fontSize: "0.75rem",
                                 mr: 0.5,
                             }}
                         >
@@ -186,7 +185,7 @@ export default function CommonMenu({
                             item.description && (
                                 <Box
                                     sx={{
-                                        fontSize: 12,
+                                        ...typography.nav.meta,
                                         color: "text.secondary",
                                         overflow: "hidden",
                                         textOverflow: "ellipsis",

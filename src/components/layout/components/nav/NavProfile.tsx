@@ -1,5 +1,6 @@
 import { Box, Stack } from '@mui/material'
 import React from 'react'
+import { typography } from '@/themes/typography'
 
 export default function NavProfile() {
 
@@ -18,7 +19,7 @@ export default function NavProfile() {
                     borderColor: "primary.main",
                     borderRadius: "50%",
                     color: "primary.main",
-                    fontSize: 15,
+                    ...typography.nav.item,
                 }}
             >
                 S
@@ -41,8 +42,7 @@ export default function NavProfile() {
                     <Box
                         component="span"
                         sx={{
-                            fontSize: 14,
-                            fontWeight: 600,
+                            ...typography.nav.itemStrong,
                             width: "100%",
                             overflow: "hidden",
                             textOverflow: "ellipsis",
@@ -55,7 +55,7 @@ export default function NavProfile() {
                     <Box
                         component="span"
                         sx={{
-                            fontSize: 12,
+                            ...typography.nav.meta,
                             color: "text.secondary",
                             width: "100%",
                             overflow: "hidden",

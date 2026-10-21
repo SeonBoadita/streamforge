@@ -1,4 +1,5 @@
 import { Box, Stack } from '@mui/material'
+import { typography } from '@/themes/typography'
 
 export default function Logo() {
     return (
@@ -32,7 +33,7 @@ export default function Logo() {
                     <Box
                     sx={{
                         display: 'inline',
-                        fontWeight: 400,
+                        ...typography.nav.brand,
                     }}
                     >
                         Stream

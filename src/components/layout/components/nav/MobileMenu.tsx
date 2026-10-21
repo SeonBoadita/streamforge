@@ -7,6 +7,7 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import NavProfile from "./NavProfile";
 import { RefObject, useEffect, useRef } from "react";
+import { typography } from "@/themes/typography";
 
 interface MobileMenuProps {
     isMobileMenuOpen: boolean;
@@ -53,7 +54,7 @@ export default function MobileMenu({
                         backgroundColor: "primary.contrastText",
                         color: "text.primary",
                         position: "absolute",
-                        fontSize: "14px",
+                        ...typography.nav.item,
                         top: "70px",
                         right: "20px",
                         borderRadius: "8px",

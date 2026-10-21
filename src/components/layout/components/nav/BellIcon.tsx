@@ -5,6 +5,7 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import CircleNotificationsOutlinedIcon from "@mui/icons-material/CircleNotificationsOutlined";
 import CommonMenu from "./CommonMenu";
 import { useState } from "react";
+import { typography } from "@/themes/typography";
 
 
 export default function BellIcon({count = 0}:{count?: number}) {
@@ -43,7 +44,7 @@ export default function BellIcon({count = 0}:{count?: number}) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: 12,
+          ...typography.nav.badge,
         }}
         >
           {count}
