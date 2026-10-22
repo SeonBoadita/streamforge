@@ -91,7 +91,7 @@ export default function Hero() {
 
             setTimeout(() => {
                 isScrolling.current = false;
-            }, 500);
+            }, 0);
 
             touchStartX.current = null;
         };
