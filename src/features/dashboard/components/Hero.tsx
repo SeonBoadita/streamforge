@@ -28,13 +28,15 @@ export default function Hero() {
 
     const BadgeIcon = badgeIcons[HERO_DATA[currentIndex].badge.icon];
     const sliderRef = useRef<HTMLDivElement | null>(null);
+    const touchStartX = useRef<number | null>(null);
     const isScrolling = useRef(false);
-    
+
     useEffect(() => {
         const slider = sliderRef.current;
 
         if (!slider) return;
 
+        // Desktop scroll functionality
         const handelHeroScroll = (e: WheelEvent) => {
             if (isScrolling.current) return;
             isScrolling.current = true;
@@ -53,9 +55,53 @@ export default function Hero() {
             }, 500);
         };
 
+        // Phone swipe functionality
+        const handleTouchStart = (e: TouchEvent) => {
+            touchStartX.current = e.touches[0].clientX;
+        };
+
+        const handleTouchEnd = (e: TouchEvent) => {
+            if (touchStartX.current === null) return;
+
+            const touchEndX = e.changedTouches[0].clientX;
+            const swipeDistance = touchEndX - touchStartX.current;
+
+            if (Math.abs(swipeDistance) < 50) {
+                touchStartX.current = null;
+                return;
+            }
+
+            if (isScrolling.current) return;
+
+            isScrolling.current = true;
+
+            if (swipeDistance < 0) {
+                // Swipe left → next
+                setCurrentIndex(
+                    (prevIndex) => (prevIndex + 1) % HERO_DATA.length
+                );
+            } else {
+                // Swipe right → previous
+                setCurrentIndex(
+                    (prevIndex) =>
+                        (prevIndex - 1 + HERO_DATA.length) %
+                        HERO_DATA.length
+                );
+            }
+
+            setTimeout(() => {
+                isScrolling.current = false;
+            }, 500);
+
+            touchStartX.current = null;
+        };
         slider.addEventListener("wheel", handelHeroScroll);
+        slider.addEventListener("touchstart", handleTouchStart);
+        slider.addEventListener("touchend", handleTouchEnd);
         return () => {
             slider.removeEventListener("wheel", handelHeroScroll);
+            slider.removeEventListener("touchstart", handleTouchStart);
+            slider.removeEventListener("touchend", handleTouchEnd);
         };
     }, []);
     return (
@@ -76,6 +122,7 @@ export default function Hero() {
                     },
                     textAlign: "center",
                     width: "100vw",
+                    touchAction: "pan-y",
                 }}
             >
                 <Stack
