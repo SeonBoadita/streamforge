@@ -104,7 +104,7 @@ export const typography = {
 
     nav: {
         brand: {
-            fontSize: "1.5rem",
+            fontSize: "1.2rem",
             fontWeight: 600,
             lineHeight: 1.2,
         },

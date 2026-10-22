@@ -23,7 +23,7 @@ export default function Logo() {
                 <Box
                     className='logo-text'
                     sx={{
-                        fontSize: '1.3rem',
+                        fontSize: '1rem',
                         display: {
                             sm: "inline",
                             xs: "none",

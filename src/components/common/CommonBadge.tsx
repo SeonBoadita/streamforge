@@ -1,5 +1,5 @@
 import { theme } from "@/themes/themes";
-import { Chip, Stack, Typography } from "@mui/material";
+import { Box, Chip, Stack, Typography } from "@mui/material";
 import React from "react";
 
 
@@ -26,7 +26,7 @@ export default function CommonBadge({ icon = null, textOne, textTwo = null }: Co
                         justifyContent: "center",
                     }}
                 >
-                    {icon}
+                    {icon && <Box sx={{ display: "flex", mr: 1 }}>{icon}</Box>}
 
                     <Typography
                         sx={{
