@@ -151,7 +151,7 @@ export default function NavBar() {
                                 }}>
                                 <SearchIcon
                                     sx={{
-                                        fontSize: 25,
+                                        fontSize: 30,
                                     }}
                                 />
                             </IconButton>
@@ -179,7 +179,8 @@ export default function NavBar() {
                                 display: {
                                     md: "flex",
                                     xs: "none",
-                                }
+                                },
+                                fontSize: 30,
                             }}
                         >
                             {

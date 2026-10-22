@@ -16,8 +16,18 @@ export default function Logo() {
                     src="/logo.png"
                     alt="Logo"
                     sx={{
-                        width: 35,
-                        height: 35,
+                        width: {
+                            lg: 35,
+                            md: 35,
+                            sm: 35,
+                            xs: 40
+                        },
+                        height: {
+                            lg: 35,
+                            md: 35,
+                            sm: 35,
+                            xs: 40
+                        },
                     }}
                 ></Box>
                 <Box
