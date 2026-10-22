@@ -1,7 +1,7 @@
 export const HERO_DATA = [
     {
         id: 'trending',
-        image: '/images/dashboard/heroImage1.png',
+        image: '/images/dashboard/heroImage01.png',
 
         badge: {
             icon: 'trending',
@@ -26,7 +26,7 @@ export const HERO_DATA = [
 
     {
         id: 'videos',
-        image: '/images/dashboard/heroImage2.png',
+        image: '/images/dashboard/heroImage02.png',
 
         badge: {
             icon: 'videos',
@@ -51,7 +51,7 @@ export const HERO_DATA = [
 
     {
         id: 'live-streams',
-        image: '/images/dashboard/heroImage3.png',
+        image: '/images/dashboard/heroImage03.png',
 
         badge: {
             icon: 'live',
@@ -76,7 +76,7 @@ export const HERO_DATA = [
 
     {
         id: 'shorts',
-        image: '/images/dashboard/heroImage4.png',
+        image: '/images/dashboard/heroImage04.png',
 
         badge: {
             icon: 'shorts',

@@ -109,10 +109,24 @@ export default function Hero() {
             <Box
                 ref={sliderRef}
                 sx={{
-                    backgroundImage: "url(" + HERO_DATA[currentIndex].image + ")",
+                    backgroundImage: {
+                        xs: `
+                        linear-gradient(
+                            90deg,
+                            rgba(0, 0, 0, 0.95) 0%,
+                            rgba(0, 0, 0, 0.75) 45%,
+                            rgba(0, 0, 0, 0.15) 100%
+                        ),
+                        url(${HERO_DATA[currentIndex].image})
+                    `,
+                        sm: `url(${HERO_DATA[currentIndex].image})`,
+                    },
                     backgroundRepeat: "no-repeat",
-                    backgroundSize: "contain",
-                    backgroundColor: "primary.contrastText",
+                    backgroundSize: "cover",
+                    backgroundPosition: {
+                        sm: "70% center",
+                        xs: "80% center",
+                    }, backgroundColor: "common.black",
                     color: "white",
                     padding: {
                         lg: "2rem 4rem",
