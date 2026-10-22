@@ -233,7 +233,7 @@ export default function Hero() {
                     >
                         <CommonCarouselDots
                             currentActiveIndex={currentIndex}
-                            count={5}
+                            count={HERO_DATA.length}
                             isHorizontal={{
                                 lg: false,
                                 md: false,
