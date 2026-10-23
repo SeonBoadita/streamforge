@@ -29,6 +29,7 @@ export default function CommonCarouselDots({
                         width: '10px',
                         height: '10px',
                         backgroundColor: alpha(theme.palette.primary.main, 0.5),
+                        transition: 'all 0.3s ease',
                         borderRadius: '50%',
                         ...currentActiveIndex === index && {
                             width: {

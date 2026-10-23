@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "motion/react";
 import { CommonButton } from "@/components/common";
 import CommonBadge from "@/components/common/CommonBadge";
 import { Box, Stack } from "@mui/material";
@@ -30,6 +31,13 @@ export default function Hero() {
     const sliderRef = useRef<HTMLDivElement | null>(null);
     const touchStartX = useRef<number | null>(null);
     const isScrolling = useRef(false);
+    
+    useEffect(()=>{
+        const autoSlider = setTimeout(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % HERO_DATA.length);
+        }, 5000);
+        return () => clearTimeout(autoSlider);
+    }, [currentIndex]);
 
     useEffect(() => {
         const slider = sliderRef.current;
@@ -139,124 +147,136 @@ export default function Hero() {
                     touchAction: "pan-y",
                 }}
             >
-                <Stack
-                    sx={{
-                        flexDirection: {
-                            lg: "row",
-                            md: "row",
-                            sm: "row",
-                            xs: "column",
-                        },
-                        gap: 3,
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                    }}
-                >
+                <AnimatePresence mode="wait">
                     <Stack
                         sx={{
-                            alignItems: "flex-start",
-                            justifyContent: "center",
-                            gap: 1.5,
-                            flex: {
-                                lg: 1,
-                                md: 2,
-                                sm: 2,
-                                xs: 1,
+                            flexDirection: {
+                                lg: "row",
+                                md: "row",
+                                sm: "row",
+                                xs: "column",
                             },
+                            gap: 3,
+                            alignItems: "center",
+                            justifyContent: "space-between",
                         }}
                     >
-                        <Box>
-                            <CommonBadge
-                                icon={
-                                    <BadgeIcon
-                                        sx={{
-                                            ...theme.typography.dashboard.title,
-                                            color: [HERO_DATA[currentIndex].badge.iconColor],
-                                        }}
-                                    />
-                                }
-                                textOne={HERO_DATA[currentIndex].badge.textOne}
-                                textTwo={HERO_DATA[currentIndex].badge.textTwo}
-                            />
-                        </Box>
-                        <Box
-                            sx={{
-                                ...theme.typography.dashboard.heroTitle,
-                                textAlign: "left",
-                                fontWeight: 700,
-                                lineHeight: 1.15,
-                                width: {
-                                    lg: "80%",
-                                    md: "60%",
-                                    sm: "90%",
-                                    xs: "90%",
-                                },
+                        <motion.div
+                            key={currentIndex}
+                            initial={{ opacity: 0, x: 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -10 }}
+                            transition={{
+                                duration: .6,
+                                ease: "easeOut",
                             }}
                         >
-                            {HERO_DATA[currentIndex].title.normalStart}{" "}
-                            <span
-                                style={{
-                                    color: "#8FAE25",
+                            <Stack
+                                sx={{
+                                    alignItems: "flex-start",
+                                    justifyContent: "center",
+                                    gap: 1.5,
+                                    flex: {
+                                        lg: 1,
+                                        md: 2,
+                                        sm: 2,
+                                        xs: 1,
+                                    },
                                 }}
                             >
-                                {HERO_DATA[currentIndex].title.highlighted}
-                            </span>{" "}
-                            {HERO_DATA[currentIndex].title.normalEnd}
-                        </Box>
-                        <Box
+                                <Box>
+                                    <CommonBadge
+                                        icon={
+                                            <BadgeIcon
+                                                sx={{
+                                                    ...theme.typography.dashboard.title,
+                                                    color: [HERO_DATA[currentIndex].badge.iconColor],
+                                                }}
+                                            />
+                                        }
+                                        textOne={HERO_DATA[currentIndex].badge.textOne}
+                                        textTwo={HERO_DATA[currentIndex].badge.textTwo}
+                                    />
+                                </Box>
+                                <Box
+                                    sx={{
+                                        ...theme.typography.dashboard.heroTitle,
+                                        textAlign: "left",
+                                        fontWeight: 700,
+                                        lineHeight: 1.15,
+                                        width: {
+                                            lg: "80%",
+                                            md: "60%",
+                                            sm: "90%",
+                                            xs: "90%",
+                                        },
+                                    }}
+                                >
+                                    {HERO_DATA[currentIndex].title.normalStart}{" "}
+                                    <span
+                                        style={{
+                                            color: "#8FAE25",
+                                        }}
+                                    >
+                                        {HERO_DATA[currentIndex].title.highlighted}
+                                    </span>{" "}
+                                    {HERO_DATA[currentIndex].title.normalEnd}
+                                </Box>
+                                <Box
+                                    sx={{
+                                        ...theme.typography.dashboard.text,
+                                        textAlign: "left",
+                                        width: {
+                                            lg: "100%",
+                                            md: "70%",
+                                            sm: "80%",
+                                            xs: "60%",
+                                        },
+                                    }}
+                                >
+                                    {HERO_DATA[currentIndex].description}
+                                </Box>
+                                <Box>
+                                    <CommonButton
+                                        endIcon={<ChevronRightIcon />}
+                                        endIconEnabled={true}
+                                        text={HERO_DATA[currentIndex].cta.text}
+                                    />
+                                </Box>
+                            </Stack>
+                        </motion.div>
+                        <Stack
                             sx={{
-                                ...theme.typography.dashboard.text,
-                                textAlign: "left",
-                                width: {
-                                    lg: "100%",
-                                    md: "70%",
-                                    sm: "80%",
-                                    xs: "60%",
+                                flex: {
+                                    lg: 2,
+                                    md: 1,
+                                    sm: 1,
+                                    xs: 0,
+                                },
+                                alignItems: "flex-end",
+                                justifyContent: "center",
+                                gap: 1.4,
+                                flexDirection: {
+                                    lg: "column",
+                                    md: "column",
+                                    sm: "column",
+                                    xs: "row",
                                 },
                             }}
                         >
-                            {HERO_DATA[currentIndex].description}
-                        </Box>
-                        <Box>
-                            <CommonButton
-                                endIcon={<ChevronRightIcon />}
-                                endIconEnabled={true}
-                                text={HERO_DATA[currentIndex].cta.text}
+                            <CommonCarouselDots
+                                currentActiveIndex={currentIndex}
+                                count={HERO_DATA.length}
+                                isHorizontal={{
+                                    lg: false,
+                                    md: false,
+                                    sm: false,
+                                    xs: true,
+                                }}
                             />
-                        </Box>
+                        </Stack>
                     </Stack>
-
-                    <Stack
-                        sx={{
-                            flex: {
-                                lg: 2,
-                                md: 1,
-                                sm: 1,
-                                xs: 0,
-                            },
-                            alignItems: "flex-end",
-                            justifyContent: "center",
-                            gap: 1.4,
-                            flexDirection: {
-                                lg: "column",
-                                md: "column",
-                                sm: "column",
-                                xs: "row",
-                            },
-                        }}
-                    >
-                        <CommonCarouselDots
-                            currentActiveIndex={currentIndex}
-                            count={HERO_DATA.length}
-                            isHorizontal={{
-                                lg: false,
-                                md: false,
-                                sm: false,
-                                xs: true,
-                            }}
-                        />
-                    </Stack>
-                </Stack>
+                </AnimatePresence>
             </Box>
         </>
     );
