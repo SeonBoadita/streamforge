@@ -17,6 +17,7 @@ export default function CommonBadge({ icon = null, textOne, textTwo = null }: Co
                 color: "primary.main",
                 border: "1px solid",
                 borderColor: "primary.main",
+                zIndex: 10,
             }}
             label={
                 <Stack

@@ -145,6 +145,7 @@ export default function Hero() {
                     textAlign: "center",
                     width: "100vw",
                     touchAction: "pan-y",
+                    zIndex: 1,
                 }}
             >
                 <AnimatePresence mode="wait">
@@ -227,7 +228,7 @@ export default function Hero() {
                                         ...theme.typography.dashboard.text,
                                         textAlign: "left",
                                         width: {
-                                            lg: "100%",
+                                            lg: "80%",
                                             md: "70%",
                                             sm: "80%",
                                             xs: "60%",
