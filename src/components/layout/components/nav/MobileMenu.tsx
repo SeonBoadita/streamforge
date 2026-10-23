@@ -8,6 +8,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import NavProfile from "./NavProfile";
 import { RefObject, useEffect, useRef } from "react";
 import { typography } from "@/themes/typography";
+import { NAVBAR_HEIGHT } from "@/constants";
 
 interface MobileMenuProps {
     isMobileMenuOpen: boolean;
@@ -55,11 +56,12 @@ export default function MobileMenu({
                         color: "text.primary",
                         position: "absolute",
                         ...typography.nav.item,
-                        top: "70px",
+                        top: `${NAVBAR_HEIGHT + 10}px`,
                         right: "20px",
                         borderRadius: "8px",
                         width: "260px",
                         padding: "10px",
+                        zIndex: 2,
 
                         "&::before": {
                             content: '""',

@@ -25,7 +25,7 @@ export default function ButtonUsage({ text = null, width="100%", enabledHeight =
                 height: enabledHeight ? height : "35px",
                 width: width,
                 textTransform: "none",
-                "&hover": {
+                "&:hover": {
                     backgroundColor: "primary.main",
                 },
             }}

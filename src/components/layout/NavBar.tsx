@@ -7,7 +7,7 @@ import { CommonButton } from '../common'
 import AddIcon from "@mui/icons-material/Add";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import { isCreator, isAdmin } from '@/constants';
+import { isCreator, isAdmin, NAVBAR_HEIGHT } from '@/constants';
 import { BellIcon, Logo, MobileMenu, Profile } from './components/nav';
 
 export default function NavBar() {
@@ -54,12 +54,12 @@ export default function NavBar() {
     return (
         <>
             <AppBar
-                position="static"
+                position="fixed"
                 color="primary"
-                elevation={5}
+                elevation={0}
                 sx={{
                     zIndex: 1000,
-                    height: 60,
+                    height: NAVBAR_HEIGHT,
                     width: '100%',
                     color: 'primary.main',
                     backgroundColor: 'primary.contrastText',
@@ -68,7 +68,16 @@ export default function NavBar() {
                     borderColor: (theme) => alpha(theme.palette.primary.main, 0.2),
                 }}
             >
-                <Toolbar>
+                <Toolbar
+                sx={{
+                    px: {
+                        xs: 2,
+                        sm: 2,
+                        md: 1,
+                        lg: 1,
+                    },
+                }}
+                >
                     <Stack
                         direction="row"
                         spacing={{

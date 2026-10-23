@@ -7,6 +7,7 @@ export default function Dashboard() {
         <>
         <Stack
         sx={{
+            position: 'relative',
             alignItems: 'center',
             justifyContent: 'center',
             height: '100%',
@@ -14,7 +15,7 @@ export default function Dashboard() {
             overflowX: 'hidden',
         }}
         >
-            <Box>
+            <Box sx={{ width: '100%' }}>
                 <Hero />
             </Box>
         </Stack>

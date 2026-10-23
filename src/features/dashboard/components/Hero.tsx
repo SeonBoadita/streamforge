@@ -137,13 +137,13 @@ export default function Hero() {
                     }, backgroundColor: "common.black",
                     color: "white",
                     padding: {
-                        lg: "2rem 4rem",
-                        md: "2rem 4rem",
+                        lg: "2rem 2rem",
+                        md: "2rem 2rem",
                         sm: "2rem",
                         xs: "1.25rem",
                     },
                     textAlign: "center",
-                    width: "100vw",
+                    width: "100%",
                     touchAction: "pan-y",
                     zIndex: 1,
                 }}

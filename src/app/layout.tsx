@@ -3,11 +3,11 @@ import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import Provider from "./Provider";
 import { Poppins } from "next/font/google";
-import { NavBar } from "@/components/layout";
+import AppLayout from "./components/AppLayout";
 
 const poppins = Poppins({
-    subsets: ["latin"],
-    weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -26,11 +26,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className={poppins.className}>
         <AppRouterCacheProvider>
           <Provider>
-            <NavBar />
-            {children}  
+            <AppLayout>{children}</AppLayout>
           </Provider>
         </AppRouterCacheProvider>
-        </body>
+      </body>
     </html>
   );
 }
