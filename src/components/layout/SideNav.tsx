@@ -22,7 +22,7 @@ export default function SideNav({ isExpanded, setIsExpanded }: SideNavProps) {
                 component="nav"
                 aria-label="Sidebar navigation"
                 sx={{
-                    padding: isExpanded ? "15px 5px" : "15px 5px",
+                    padding: "15px 5px",
                     position: 'fixed',
                     width: isExpanded
                         ? `${SIDENAV_EXPANDED_WIDTH}px`
@@ -46,7 +46,7 @@ export default function SideNav({ isExpanded, setIsExpanded }: SideNavProps) {
                 }}
             >
                 <Stack
-                    spacing={2}
+                    spacing={1}
                     sx={{
                         alignItems: 'stretch',
                         justifyContent: 'flex-start',

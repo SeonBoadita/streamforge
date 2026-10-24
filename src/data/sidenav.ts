@@ -1,7 +1,7 @@
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined';
-import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
-import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
+import LiveTvIcon from '@mui/icons-material/LiveTv';
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import BoltIcon from '@mui/icons-material/Bolt';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import LeaderboardOutlinedIcon from '@mui/icons-material/LeaderboardOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
@@ -26,16 +26,16 @@ export const SIDE_NAV_ITEMS = [
                 icon: HomeOutlinedIcon,
             },
             {
-                name: 'Games',
-                icon: SportsEsportsOutlinedIcon,
-            },
-            {
                 name: 'Live',
-                icon: LiveTvOutlinedIcon,
+                icon: LiveTvIcon,
             },
             {
-                name: 'Tournaments',
-                icon: EmojiEventsOutlinedIcon,
+                name: 'Videos',
+                icon: PlayCircleIcon,
+            },
+            {
+                name: 'Shorts',
+                icon: BoltIcon,
             },
         ],
     },
