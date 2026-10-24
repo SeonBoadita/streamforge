@@ -2,8 +2,7 @@
 "use client";
 import { alpha, AppBar, Box, IconButton, Stack, Toolbar } from '@mui/material'
 import React from 'react'
-import CommonSearchBar from '../common/CommonSearchBar'
-import { CommonButton } from '../common'
+import { CommonButton, CommonSearchBar } from '@/components/common'
 import AddIcon from "@mui/icons-material/Add";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";

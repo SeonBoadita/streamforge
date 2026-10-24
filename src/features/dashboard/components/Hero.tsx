@@ -1,8 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { CommonButton } from "@/components/common";
-import CommonBadge from "@/components/common/CommonBadge";
+import { CommonBadge, CommonButton, CommonCarouselDots } from "@/components/common";
 import { Box, Stack } from "@mui/material";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
@@ -11,7 +10,6 @@ import BoltIcon from "@mui/icons-material/Bolt";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import React, { useEffect, useRef } from "react";
 import { theme } from "@/themes/themes";
-import CommonCarouselDots from "@/components/common/CommonCarouselDots";
 import { HERO_DATA } from "@/data";
 
 type BadgeIconKey = 'trending' | 'videos' | 'live' | 'shorts';

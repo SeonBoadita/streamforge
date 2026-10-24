@@ -4,5 +4,12 @@ import { typography } from "./typography";
 
 export const theme = createTheme({
     palette,
-    typography
+    typography,
+    components: {
+        MuiSvgIcon: {
+            styleOverrides: {
+                root: typography.icons,
+            },
+        },
+    },
 });

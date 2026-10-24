@@ -9,11 +9,27 @@ type TypographyGroup = Record<string, TypographyStyle>;
 
 declare module "@mui/material/styles" {
     interface TypographyVariants {
+        icons: TypographyStyle;
+        heading1: TypographyStyle;
+        heading2: TypographyStyle;
+        heading3: TypographyStyle;
+        heading4: TypographyStyle;
+        paragraph1: TypographyStyle;
+        paragraph2: TypographyStyle;
+        paragraph3: TypographyStyle;
         nav: TypographyGroup;
         dashboard: TypographyGroup;
     }
 
     interface TypographyVariantsOptions {
+        icons?: TypographyStyle;
+        heading1?: TypographyStyle;
+        heading2?: TypographyStyle;
+        heading3?: TypographyStyle;
+        heading4?: TypographyStyle;
+        paragraph1?: TypographyStyle;
+        paragraph2?: TypographyStyle;
+        paragraph3?: TypographyStyle;
         nav?: TypographyGroup;
         dashboard?: TypographyGroup;
     }
@@ -22,82 +38,41 @@ declare module "@mui/material/styles" {
 export const typography = {
     fontFamily: "Poppins, sans-serif",
 
-    h1: {
-        fontSize: "2.5rem",
-        fontWeight: 700,
-        lineHeight: 1.2,
+    icons: {
+        width: "1.5625rem",
+        height: "1.5625rem",
     },
 
-    h2: {
-        fontSize: "2rem",
-        fontWeight: 700,
-        lineHeight: 1.25,
+    heading1: {
+        fontSize: "1.875rem", // 30px
     },
 
-    h3: {
-        fontSize: "1.75rem",
-        fontWeight: 600,
-        lineHeight: 1.3,
+    heading2: {
+        fontSize: "1.625rem", // 26px
     },
 
-    h4: {
-        fontSize: "1.5rem",
-        fontWeight: 600,
-        lineHeight: 1.35,
+    heading3: {
+        fontSize: "1.25rem", // 20px
     },
 
-    h5: {
-        fontSize: "1.25rem",
-        fontWeight: 600,
-        lineHeight: 1.4,
+    heading4: {
+        fontSize: "1.125rem", // 18px
     },
 
-    h6: {
-        fontSize: "1.125rem",
-        fontWeight: 600,
-        lineHeight: 1.4,
+    paragraph1: {
+        fontSize: "1rem", // 16px
     },
 
-    subtitle1: {
-        fontSize: "1rem",
-        fontWeight: 500,
-        lineHeight: 1.5,
+    paragraph2: {
+        fontSize: "0.875rem", // 14px
     },
 
-    subtitle2: {
-        fontSize: "0.875rem",
-        fontWeight: 500,
-        lineHeight: 1.5,
-    },
-
-    body1: {
-        fontSize: "1rem",
-        fontWeight: 400,
-        lineHeight: 1.5,
-    },
-
-    body2: {
-        fontSize: "0.875rem",
-        fontWeight: 400,
-        lineHeight: 1.5,
-    },
-
-    button: {
-        fontSize: "0.875rem",
-        fontWeight: 600,
-        textTransform: "none",
-    },
-
-    caption: {
-        fontSize: "0.75rem",
-        fontWeight: 400,
-        lineHeight: 1.4,
+    paragraph3: {
+        fontSize: "0.75rem", // 12px
     },
 
     overline: {
         fontSize: "0.75rem",
-        fontWeight: 600,
-        lineHeight: 1.5,
         textTransform: "uppercase",
         letterSpacing: "0.08em",
     },

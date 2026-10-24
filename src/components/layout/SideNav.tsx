@@ -1,18 +1,28 @@
-import { Stack } from '@mui/material'
-import React from 'react'
+import { Box, Stack } from '@mui/material'
+import type { Dispatch, SetStateAction } from 'react'
 import {
     NAVBAR_HEIGHT,
     SIDENAV_COLLAPSED_WIDTH,
     SIDENAV_EXPANDED_WIDTH,
 } from '@/constants'
 
-import ViewSidebarOutlinedIcon from "@mui/icons-material/ViewSidebarOutlined";
+import { SideNavItem } from './components/sideNav';
+import { SIDE_NAV_ITEMS } from '@/data';
+import { CommonToolPicker } from '@/components/common';
 
-export default function SideNav({ isExpanded, setIsExpanded }: { isExpanded: boolean; setIsExpanded: (isExpanded: boolean) => void }) {
+interface SideNavProps {
+    isExpanded: boolean;
+    setIsExpanded: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function SideNav({ isExpanded, setIsExpanded }: SideNavProps) {
     return (
         <>
             <Stack
+                component="nav"
+                aria-label="Sidebar navigation"
                 sx={{
+                    padding: isExpanded ? "15px 5px" : "15px 5px",
                     position: 'fixed',
                     width: isExpanded
                         ? `${SIDENAV_EXPANDED_WIDTH}px`
@@ -25,7 +35,7 @@ export default function SideNav({ isExpanded, setIsExpanded }: { isExpanded: boo
                     borderColor: 'divider',
                     boxShadow: 3,
                     zIndex: 1,
-                    transition: "all 0.3s ease-in-out",
+                    transition: "width 0.3s ease-in-out",
                     color: 'text.primary',
                     display: {
                         xs: "none",
@@ -34,9 +44,69 @@ export default function SideNav({ isExpanded, setIsExpanded }: { isExpanded: boo
                         lg: "flex",
                     }
                 }}
-                onClick={() => setIsExpanded(!isExpanded)}
             >
-                <ViewSidebarOutlinedIcon/>
+                <Stack
+                    spacing={2}
+                    sx={{
+                        alignItems: 'stretch',
+                        justifyContent: 'flex-start',
+                        width: '100%',
+                    }}
+                >
+                    {
+                        SIDE_NAV_ITEMS.map((section, index) => {
+                            return (
+                                <Box
+                                    key={index}
+                                >
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            rowGap: 1,
+                                            marginTop: index === 0 ? 0 : 1,
+
+                                            "&::after": {
+                                                content: '""',
+                                                display: 'block',
+                                                width: '100%',
+                                                opacity: 0.1,
+                                                height: '1px',
+                                                backgroundColor: '#ffffff',
+                                                marginTop: 1,
+                                            }
+                                        }}
+                                    >
+                                        <Stack spacing={2}>
+                                            {section.items.map((item) => (
+                                                <Box key={item.name}>
+                                                    <CommonToolPicker
+                                                        name={item.name}
+                                                        disabled={isExpanded || item.name === 'Collapse'}
+                                                    >
+                                                        <SideNavItem
+                                                            isExpanded={isExpanded}
+                                                            onToggle={() => setIsExpanded((expanded) => !expanded)}
+                                                            name={item.name}
+                                                            icon={<item.icon />}
+                                                            iconToggle={
+                                                                'iconToggle' in item
+                                                                    ? <item.iconToggle />
+                                                                    : undefined
+                                                            }
+                                                        />
+                                                    </CommonToolPicker>
+                                                </Box>
+
+                                            ))}
+                                        </Stack>
+                                    </Box>
+                                </Box>
+                            )
+                        })
+                    }
+
+                </Stack>
             </Stack>
         </>
     )
