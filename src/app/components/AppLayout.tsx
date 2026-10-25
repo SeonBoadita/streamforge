@@ -2,7 +2,7 @@
 
 import { Box } from "@mui/material";
 import { useState } from "react";
-import { NavBar, SideNav } from "@/components/layout";
+import { BottomNav, NavBar, SideNav } from "@/components/layout";
 import {
   NAVBAR_HEIGHT,
   SIDENAV_COLLAPSED_WIDTH,
@@ -47,6 +47,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       >
         {children}
       </Box>
+            <BottomNav />
     </>
   );
 }
