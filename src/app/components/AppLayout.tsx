@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import { useState } from "react";
 import { BottomNav, NavBar, SideNav } from "@/components/layout";
 import {
+  BOTTOM_NAV_HEIGHT,
   NAVBAR_HEIGHT,
   SIDENAV_COLLAPSED_WIDTH,
   SIDENAV_EXPANDED_WIDTH,
@@ -22,6 +23,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <Box
         sx={{
           pt: `${NAVBAR_HEIGHT}px`,
+          pb: {
+            xs: `${BOTTOM_NAV_HEIGHT}px`,
+            sm: `${BOTTOM_NAV_HEIGHT}px`,
+            md: 0,
+            lg: 0,
+          },
           ml: {
             xs: 0,
             sm: 0,
