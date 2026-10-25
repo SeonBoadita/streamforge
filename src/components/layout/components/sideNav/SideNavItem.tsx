@@ -65,7 +65,7 @@ export default function SideNavItem({ isExpanded, onToggle, name, icon, iconTogg
             <Box
                 sx={(theme) => ({
                     color: 'text.primary',
-                    ...theme.typography.paragraph2,
+                    ...theme.typography.paragraph1,
                     opacity: isExpanded ? 1 : 0,
                     visibility: isExpanded ? 'visible' : 'hidden',
                     width: isExpanded ? 'auto' : 0,

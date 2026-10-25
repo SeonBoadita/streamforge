@@ -30,7 +30,7 @@ export default function SideNav({ isExpanded, setIsExpanded }: SideNavProps) {
                     top: NAVBAR_HEIGHT,
                     left: 0,
                     height: `calc(100vh - ${NAVBAR_HEIGHT}px)`,
-                    backgroundColor: 'primary.contrastText',
+                    backgroundColor: 'background.default',
                     borderRight: '1px solid',
                     borderColor: 'divider',
                     boxShadow: 3,

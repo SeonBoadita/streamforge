@@ -1,5 +1,5 @@
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import LiveTvIcon from '@mui/icons-material/LiveTv';
+import CircleIcon from '@mui/icons-material/Circle';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import BoltIcon from '@mui/icons-material/Bolt';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
@@ -27,7 +27,7 @@ export const SIDE_NAV_ITEMS = [
             },
             {
                 name: 'Live',
-                icon: LiveTvIcon,
+                icon: CircleIcon,
             },
             {
                 name: 'Videos',

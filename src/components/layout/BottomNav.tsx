@@ -11,7 +11,7 @@ export default function BottomNav() {
                     height: BOTTOM_NAV_HEIGHT,
                     bottom: 0,
                     position: 'fixed',
-                    backgroundColor: 'primary.contrastText',
+                    backgroundColor: 'background.default',
                     zIndex: 1,
                     color: 'text.primary',
                     display: {

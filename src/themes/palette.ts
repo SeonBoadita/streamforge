@@ -68,6 +68,15 @@ export const palette = {
   background: {
     paper: "#151716",
     default: "#0D0F0E",
+
+    // Dashboard content background
+    surface: "#0A0A0A",
+
+    // Cards and elevated content
+    elevated: "#141414",
+
+    // Hero / media sections
+    hero: "#000000",
   },
 
   divider: "rgba(255, 255, 255, 0.10)",

@@ -16,8 +16,8 @@ export default function BottomNavItems() {
                                 spacing={0}
                                 sx={(theme) => {
                                     const fontSize = {
-                                        sm: getFontSize(theme.typography.paragraph2.fontSize),
-                                        xs: getFontSize(theme.typography.paragraph3.fontSize),
+                                        sm: getFontSize(theme.typography.paragraph1.fontSize),
+                                        xs: getFontSize(theme.typography.paragraph2.fontSize),
                                     }
 
                                     return {
@@ -33,8 +33,8 @@ export default function BottomNavItems() {
                                 <Box
                                     sx={(theme) => ({
                                         fontSize: {
-                                            sm: getFontSize(theme.typography.paragraph2.fontSize),
-                                            xs: getFontSize(theme.typography.paragraph3.fontSize),
+                                            sm: getFontSize(theme.typography.paragraph1.fontSize),
+                                            xs: getFontSize(theme.typography.paragraph2.fontSize),
                                         },
                                     })}
                                 >

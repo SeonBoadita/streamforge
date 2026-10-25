@@ -28,6 +28,9 @@ export default function ButtonUsage({ text = null, width="100%", enabledHeight =
                 "&:hover": {
                     backgroundColor: "primary.main",
                 },
+                "&:active": {
+                    transform: "scale(0.98)",
+                },
             }}
         >
             {text}

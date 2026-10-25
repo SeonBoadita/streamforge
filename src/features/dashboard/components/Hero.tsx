@@ -5,7 +5,7 @@ import { CommonBadge, CommonButton, CommonCarouselDots } from "@/components/comm
 import { Box, Stack } from "@mui/material";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
-import LiveTvIcon from "@mui/icons-material/LiveTv";
+import CircleIcon from "@mui/icons-material/Circle";
 import BoltIcon from "@mui/icons-material/Bolt";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import React, { useEffect, useRef } from "react";
@@ -21,7 +21,7 @@ export default function Hero() {
     const badgeIcons: Record<BadgeIconKey, typeof LocalFireDepartmentIcon> = {
         trending: LocalFireDepartmentIcon,
         videos: PlayCircleIcon,
-        live: LiveTvIcon,
+        live: CircleIcon,
         shorts: BoltIcon,
     };
 
@@ -44,6 +44,8 @@ export default function Hero() {
 
         // Desktop scroll functionality
         const handelHeroScroll = (e: WheelEvent) => {
+            e.preventDefault();
+            
             if (isScrolling.current) return;
             isScrolling.current = true;
 
@@ -132,7 +134,7 @@ export default function Hero() {
                     backgroundPosition: {
                         sm: "70% center",
                         xs: "80% center",
-                    }, backgroundColor: "common.black",
+                    }, backgroundColor: "background.hero",
                     color: "white",
                     padding: {
                         lg: "2rem 2rem",

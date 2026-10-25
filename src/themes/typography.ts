@@ -14,9 +14,9 @@ declare module "@mui/material/styles" {
         heading2: TypographyStyle;
         heading3: TypographyStyle;
         heading4: TypographyStyle;
+        heading5: TypographyStyle;
         paragraph1: TypographyStyle;
         paragraph2: TypographyStyle;
-        paragraph3: TypographyStyle;
         nav: TypographyGroup;
         dashboard: TypographyGroup;
     }
@@ -27,9 +27,9 @@ declare module "@mui/material/styles" {
         heading2?: TypographyStyle;
         heading3?: TypographyStyle;
         heading4?: TypographyStyle;
+        heading5?: TypographyStyle;
         paragraph1?: TypographyStyle;
         paragraph2?: TypographyStyle;
-        paragraph3?: TypographyStyle;
         nav?: TypographyGroup;
         dashboard?: TypographyGroup;
     }
@@ -59,15 +59,15 @@ export const typography = {
         fontSize: "1.125rem", // 18px
     },
 
-    paragraph1: {
+    heading5: {
         fontSize: "1rem", // 16px
     },
 
-    paragraph2: {
+    paragraph1: {
         fontSize: "0.875rem", // 14px
     },
 
-    paragraph3: {
+    paragraph2: {
         fontSize: "0.75rem", // 12px
     },
 

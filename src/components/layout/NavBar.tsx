@@ -6,7 +6,7 @@ import { CommonButton, CommonSearchBar } from '@/components/common'
 import AddIcon from "@mui/icons-material/Add";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import { isCreator, isAdmin, NAVBAR_HEIGHT } from '@/constants';
+import { isCreator, NAVBAR_HEIGHT } from '@/constants';
 import { BellIcon, Logo, MobileMenu, Profile } from './components/nav';
 
 export default function NavBar() {
@@ -61,7 +61,7 @@ export default function NavBar() {
                     height: NAVBAR_HEIGHT,
                     width: '100%',
                     color: 'primary.main',
-                    backgroundColor: 'primary.contrastText',
+                    backgroundColor: 'background.default',
                     overflow: 'hidden',
                     borderBottom: '1px solid',
                     borderColor: (theme) => alpha(theme.palette.primary.main, 0.2),
