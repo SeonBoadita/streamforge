@@ -1,10 +1,10 @@
 'use client'
 
-import { CATEGORY_DATA, CONTENT_SECTION_DATA } from '@/data'
+import { CONTENT_SECTION_DATA } from '@/data'
 import { Box, Stack } from '@mui/material'
 import React from 'react'
 import ContentSection from './ContentSection'
-import CategoryTabs from './CategoryTabs'
+import CategorySection from './CategorySection'
 export default function DashboardContent() {
     return (
         <Stack
@@ -28,32 +28,7 @@ export default function DashboardContent() {
             Videos - grid (vertical)
         */}
 
-            <Box
-                sx={{
-                    display: 'flex',
-                    width: '100%',
-                    minWidth: 0,
-                    gap: '1rem',
-                    flexWrap: 'nowrap',
-                    overflowX: 'auto',
-                    scrollbarWidth: 'none',
-                    '&::-webkit-scrollbar': {
-                        display: 'none',
-                    },
-                    '& > *': {
-                        flex: '0 0 auto',
-                    },
-                }}
-            >
-                {CATEGORY_DATA.map((category) => (
-                    <CategoryTabs
-                        key={category.id}
-                        title={category.title}
-                        icon={category.icon}
-                        iconColor={category.iconColor}
-                    />
-                ))}
-            </Box>
+            <CategorySection />
             {
                 CONTENT_SECTION_DATA.map((section, index) => {
                     return (
