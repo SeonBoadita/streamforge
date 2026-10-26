@@ -34,18 +34,8 @@ export default function DashboardContent() {
                     width: '100%',
                     minWidth: 0,
                     gap: '1rem',
-                    flexWrap: {
-                        xs: 'nowrap',
-                        sm: 'nowrap',
-                        md: 'wrap',
-                        lg: 'wrap',
-                    },
-                    overflowX: {
-                        xs: 'auto',
-                        sm: 'auto',
-                        md: 'visible',
-                        lg: 'visible',
-                    },
+                    flexWrap: 'nowrap',
+                    overflowX: 'auto',
                     scrollbarWidth: 'none',
                     '&::-webkit-scrollbar': {
                         display: 'none',
@@ -81,6 +71,7 @@ export default function DashboardContent() {
                             }}
                         >
                             <ContentSection
+                                id={section.id}
                                 title={section.title}
                                 description={section.description}
                                 icon={section.icon}

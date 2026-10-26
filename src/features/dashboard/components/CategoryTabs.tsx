@@ -52,7 +52,8 @@ export default function CategoryTabs({ title, icon: Icon, iconColor }: CategoryT
                         fontSize: typography.paragraph1.fontSize,
                         lineHeight: 1,
                     }}
-                >{title}
+                >
+                    {title}
                 </Box>
             </Stack>
         </Stack>
