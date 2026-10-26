@@ -1,5 +1,5 @@
 import { CommonShortsCard, CommonVideoCard } from '@/components/common';
-import { Box, Grid, IconButton } from '@mui/material';
+import { alpha, Box, Grid, IconButton } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -35,27 +35,52 @@ export default function ContentBottom({ id }: ContentBottomProps) {
             {
                 id === 'live' || id === 'creators' || id === 'shorts' ? (
                     <Box
-                        sx={{
+                        sx={(theme) => ({
                             position: 'relative',
                             width: '100%',
                             minWidth: 0,
-                        }}
+                            '&:hover': {
+                                [theme.breakpoints.up('md')]: {
+                                    '.embla__prev-button': {
+                                        opacity: 1,
+                                        left: '0.5rem',
+                                    },
+                                    '.embla__next-button': {
+                                        opacity: 1,
+                                        right: '0.5rem',
+                                    },
+                                },
+                            },
+                        })}
                     >
                         {/* Previous Button */}
                         <IconButton
                             onClick={scrollPrev}
+                            className="embla__prev-button"
                             sx={{
                                 position: 'absolute',
-                                left: '0.5rem',
+                                left: {
+                                    lg: '0rem',
+                                    md: '0rem',
+                                    sm: '0.5rem',
+                                    xs: '0.5rem',
+                                },
                                 top: '50%',
                                 transform: 'translateY(-50%)',
                                 zIndex: 2,
                                 backgroundColor: 'background.paper',
                                 boxShadow: 2,
-
                                 '&:hover': {
-                                    backgroundColor: 'background.paper',
+                                    backgroundColor: (theme) =>
+                                        alpha(theme.palette.background.paper, 0.8),
                                 },
+                                opacity: {
+                                    lg: 0,
+                                    md: 0,
+                                    sm: 1,
+                                    xs: 1,
+                                },
+                                transition: 'all 0.5s, left 0.3s',
                             }}
                         >
                             <ChevronLeftIcon />
@@ -102,18 +127,31 @@ export default function ContentBottom({ id }: ContentBottomProps) {
                         {/* Next Button */}
                         <IconButton
                             onClick={scrollNext}
+                            className="embla__next-button"
                             sx={{
                                 position: 'absolute',
-                                right: '0.5rem',
+                                right: {
+                                    lg: '0rem',
+                                    md: '0rem',
+                                    sm: '0.5rem',
+                                    xs: '0.5rem',
+                                },
                                 top: '50%',
                                 transform: 'translateY(-50%)',
                                 zIndex: 2,
                                 backgroundColor: 'background.paper',
                                 boxShadow: 2,
-
                                 '&:hover': {
-                                    backgroundColor: 'background.paper',
+                                    backgroundColor: (theme) =>
+                                        alpha(theme.palette.background.paper, 0.8),
                                 },
+                                opacity: {
+                                    lg: 0,
+                                    md: 0,
+                                    sm: 1,
+                                    xs: 1,
+                                },
+                                transition: 'all 0.5s, right 0.3s',
                             }}
                         >
                             <ChevronRightIcon />
