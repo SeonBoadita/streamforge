@@ -116,7 +116,9 @@ export default function ContentBottom({ id }: ContentBottomProps) {
                                             {
                                                 id === 'shorts'
                                                     ? <CommonShortsCard />
-                                                    : <CommonVideoCard />
+                                                    : <CommonVideoCard
+                                                    isCreator={id === 'creators' ? true : false}
+                                                    />
                                             }
                                         </Box>
                                     ))

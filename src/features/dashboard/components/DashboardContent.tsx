@@ -1,6 +1,7 @@
 'use client'
 
 import { CONTENT_SECTION_DATA } from '@/data'
+import { BOTTOM_NAV_HEIGHT } from '@/constants'
 import { Box, Stack } from '@mui/material'
 import React from 'react'
 import ContentSection from './ContentSection'
@@ -14,6 +15,12 @@ export default function DashboardContent() {
                 minHeight: '100vh',
                 width: '100%',
                 padding: "2rem",
+                paddingBottom: {
+                    xs: `calc(2rem + ${BOTTOM_NAV_HEIGHT}px)`,
+                    sm: `calc(2rem + ${BOTTOM_NAV_HEIGHT}px)`,
+                    md: "2rem",
+                    lg: "2rem",
+                },
                 backgroundColor: 'background.surface',
                 color: 'text.primary',
                 alignItems: 'flex-start',

@@ -34,7 +34,7 @@ export default function SideNav({ isExpanded, setIsExpanded }: SideNavProps) {
                     borderRight: '1px solid',
                     borderColor: 'divider',
                     boxShadow: 3,
-                    zIndex: 1,
+                    zIndex: 9999,
                     transition: "width 0.3s ease-in-out",
                     color: 'text.primary',
                     display: {

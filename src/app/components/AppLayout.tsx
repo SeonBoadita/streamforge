@@ -4,11 +4,12 @@ import { Box } from "@mui/material";
 import { useState } from "react";
 import { BottomNav, NavBar, SideNav } from "@/components/layout";
 import {
-  BOTTOM_NAV_HEIGHT,
   NAVBAR_HEIGHT,
+  BOTTOM_NAV_HEIGHT,
   SIDENAV_COLLAPSED_WIDTH,
   SIDENAV_EXPANDED_WIDTH,
 } from "@/constants";
+import Footer from "@/components/layout/Footer";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [isSideNavExpanded, setIsSideNavExpanded] = useState<boolean>(false);
@@ -53,8 +54,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         }}
       >
         {children}
+        <Footer />
       </Box>
-            <BottomNav />
+      <BottomNav />
+
     </>
   );
 }

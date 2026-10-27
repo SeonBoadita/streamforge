@@ -57,7 +57,7 @@ export default function NavBar() {
                 color="primary"
                 elevation={0}
                 sx={{
-                    zIndex: 1000,
+                    zIndex: 9999,
                     height: NAVBAR_HEIGHT,
                     width: '100%',
                     color: 'primary.main',

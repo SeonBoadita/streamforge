@@ -12,7 +12,7 @@ export default function BottomNav() {
                     bottom: 0,
                     position: 'fixed',
                     backgroundColor: 'background.default',
-                    zIndex: 1,
+                    zIndex: 9999,
                     color: 'text.primary',
                     display: {
                         xs: "flex",
