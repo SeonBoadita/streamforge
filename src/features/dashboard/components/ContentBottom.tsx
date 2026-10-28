@@ -117,7 +117,7 @@ export default function ContentBottom({ id }: ContentBottomProps) {
                                                 id === 'shorts'
                                                     ? <CommonShortsCard />
                                                     : <CommonVideoCard
-                                                    isCreator={id === 'creators' ? true : false}
+                                                        isCreator={id === 'creators' ? true : false}
                                                     />
                                             }
                                         </Box>
@@ -159,32 +159,20 @@ export default function ContentBottom({ id }: ContentBottomProps) {
                             <ChevronRightIcon />
                         </IconButton>
                     </Box>
-                ) : (
-                    <Grid
-                        container
-                        spacing={2}
-                    >
-                        {
-                            tempItems.map((item, index) => (
-                                <Grid
-                                    key={index}
-                                    size={{
-                                        lg: 3,
-                                        md: 4,
-                                        sm: 6,
-                                        xs: 12,
-                                    }}
-                                    sx={{
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <CommonVideoCard />
-                                </Grid>
-                            ))
-                        }
-                    </Grid>
-                )
+                ) : <Grid
+                    container
+                    sx={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+                        gap: 2,
+                    }}
+                >
+                    {tempItems.map((item, index) => (
+                        <Grid key={index}>
+                            <CommonVideoCard />
+                        </Grid>
+                    ))}
+                </Grid>
             }
         </>
     );

@@ -1,20 +1,20 @@
 import { Box, Stack } from '@mui/material'
+import { alpha } from '@mui/material/styles'
 import React from 'react'
-import { Logo } from './components/footer'
-import { FOOTER_SOCIAL_ITEMS } from '@/data'
+import { FooterBottom, FooterBrand, FooterLinks, FooterNewsLetter } from './components/footer'
 
 export default function Footer() {
     return (
         <>
             <Box
-                sx={{
+                sx={(theme) => ({
                     position: 'relative',
                     width: '100%',
                     minHeight: '200px',
                     backgroundColor: 'background.default',
                     boxShadow: '0 -1px 8px rgba(0, 0, 0, 0.1)',
                     color: 'text.primary',
-
+                    overflow: 'hidden',
 
                     "&::before": {
                         content: '""',
@@ -24,15 +24,22 @@ export default function Footer() {
                         right: 0,
                         height: '1px',
                         width: '100%',
-                        backgroundColor: 'divider',
+                        backgroundColor: alpha(theme.palette.primary.main, 0.4),
+                        display: {
+                            lg: 'block',
+                            md: 'block',
+                            sm: 'block',
+                            xs: 'block',
+                        },
                     }
-                }}
+                })}
             >
                 <Stack
                     sx={{
                         width: '100%',
                         minHeight: 'inherit',
                         padding: "20px 30px",
+                        gap: 25,
                         alignItems: 'center',
                         justifyContent: 'space-between',
                     }}
@@ -44,86 +51,58 @@ export default function Footer() {
                             sm: "column",
                             xs: "column",
                         }}
-                        sx={{
-                            alignItems: 'center',
+                        sx={(theme) => ({
+                            alignItems: 'stretch',
                             justifyContent: 'space-between',
                             width: '100%',
-                            gap: 4,
 
-                            '& > :not(:last-child)': {
-                                borderRight: (theme) => `1px solid ${theme.palette.divider}`,
-                                paddingRight: 4,
+                            '& > *': {
+                                paddingRight: {
+                                    lg: 2,
+                                    md: 2,
+                                    sm: 0,
+                                    xs: 0
+                                },
+                                paddingLeft: {
+                                    lg: 2,
+                                    md: 2,
+                                    sm: 0,
+                                    xs: 0
+                                },
+                                paddingTop: {
+                                    lg: 0,
+                                    md: 0,
+                                    sm: 4,
+                                    xs: 4
+                                },
+                                paddingBottom: {
+                                    lg: 0,
+                                    md: 0,
+                                    sm: 4,
+                                    xs: 4
+                                },
                             },
-                            '& > :not(:first-child)': {
-                                paddingLeft: 4,
+                            '& > :not(:last-child)': {
+                                borderRight: {
+                                    lg: `1px solid ${alpha(theme.palette.primary.main, 0.4)}`,
+                                    md: `1px solid ${alpha(theme.palette.primary.main, 0.4)}`,
+                                    sm: 'none',
+                                    xs: 'none',
+                                },
+                                borderBottom: {
+                                    lg: 'none',
+                                    md: 'none',
+                                    sm: `1px solid ${alpha(theme.palette.primary.main, 0.4)}`,
+                                    xs: `1px solid ${alpha(theme.palette.primary.main, 0.4)}`,
+                                },
                             }
-                        }}
+                        })}
                     >
-                        <Stack
-                            sx={{
-                                flex: 1,
-                                gap: 1.5,
-                            }}
-                        >
-                            <Stack>
-                                <Box>
-                                    <Logo />
-                                </Box>
-                            </Stack>
-                            <Box
-                                sx={{
-                                    fontSize: (theme) => theme.typography.caption,
-                                    color: (theme) => theme.palette.text.secondary,
-                                    textAlign: 'justify',
-                                }}
-                            >
-                                A next-gen streaming platform for creators,
-                                viewers, and communities. Discover amazing
-                                content, support creators, and be part of
-                                something bigger.
-                            </Box>
-                            <Stack
-                                direction="row"
-                                sx={{
-                                    gap: 3,
-                                }}
-                            >
-                                {FOOTER_SOCIAL_ITEMS.map(({ name, icon: Icon }) => (
-                                    <Box
-                                        key={name}
-                                        component={Icon}
-                                        aria-label={name}
-                                        sx={{
-                                            backgroundColor: (theme) => theme.palette.grey[800],
-                                            cursor: 'pointer',
-                                            borderRadius: '8px',
-                                            padding: 1,
-                                            width: 34,
-                                            height: 34,
-                                        }}
-                                    />
-                                ))}
-                            </Stack>
-                        </Stack>
-
-                        <Stack
-                            sx={{
-                                flex: 1,
-                            }}
-                        >
-                            Two
-                        </Stack>
-                        <Stack
-                            sx={{
-                                flex: 1,
-                            }}
-                        >
-                            Three
-                        </Stack>
+                        <FooterBrand />
+                        <FooterLinks />
+                        <FooterNewsLetter />
                     </Stack>
-                    <Stack>
-                        Hello, I am Seonbin Kim. I am a
-                    </Stack>
+                    <FooterBottom />
                 </Stack>
                 {/* <Image
                 src="/images/streamforge-logo.svg"

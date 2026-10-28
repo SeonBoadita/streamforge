@@ -10,9 +10,11 @@ interface ButtonUsageProps {
     startIconEnabled?: boolean;
     endIconEnabled?: boolean;
     padding?: string | null;
+    border?: string | null;
+    borderRadius?: string | null;
 }
 
-export default function ButtonUsage({ text = null, width="100%", enabledHeight = false, padding = null, height = null, startIcon = null, endIcon = null, startIconEnabled = false, endIconEnabled = false }: ButtonUsageProps): React.ReactNode {
+export default function ButtonUsage({ text = null, borderRadius = null, width = "100%", enabledHeight = false, padding = null, height = null, startIcon = null, endIcon = null, startIconEnabled = false, endIconEnabled = false }: ButtonUsageProps): React.ReactNode {
     return (
         <Button
             variant="contained"
@@ -20,9 +22,9 @@ export default function ButtonUsage({ text = null, width="100%", enabledHeight =
             startIcon={startIconEnabled ? startIcon : null}
             endIcon={endIconEnabled ? endIcon : null}
             sx={{
-                borderRadius: "200px",
                 padding: padding || "0px 20px",
                 height: enabledHeight ? height : "35px",
+                borderRadius: borderRadius || "200px",
                 width: width,
                 textTransform: "none",
                 "&:hover": {

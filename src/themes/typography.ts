@@ -17,6 +17,7 @@ declare module "@mui/material/styles" {
         heading5: TypographyStyle;
         paragraph1: TypographyStyle;
         paragraph2: TypographyStyle;
+        footer: TypographyGroup;
         nav: TypographyGroup;
         dashboard: TypographyGroup;
     }
@@ -30,6 +31,7 @@ declare module "@mui/material/styles" {
         heading5?: TypographyStyle;
         paragraph1?: TypographyStyle;
         paragraph2?: TypographyStyle;
+        footer?: TypographyGroup;
         nav?: TypographyGroup;
         dashboard?: TypographyGroup;
     }
@@ -75,6 +77,14 @@ export const typography = {
         fontSize: "0.75rem",
         textTransform: "uppercase",
         letterSpacing: "0.08em",
+    },
+
+    footer: {
+        overline: {
+            fontSize: "0.7rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.09em",
+        },
     },
 
     nav: {

@@ -1,6 +1,6 @@
 import { alpha, Box, Stack } from '@mui/material'
 
-export default function Logo() {
+export default function FooterBrandLogo() {
     return (
         <>
             <Stack
@@ -35,13 +35,14 @@ export default function Logo() {
                     >
                         StreamForge
                         <Box
-                            sx={{
+                            sx={(theme) => ({
                                 display: 'block',
-                                fontSize: (theme) => theme.typography.overline,
+                                ...theme.typography.footer.overline,
                                 lineHeight: 1,
                                 marginTop: '5px',
-                                color: (theme) => alpha(theme.palette.secondary.contrastText, 0.5),
-                            }}
+                                color: alpha(theme.palette.secondary.contrastText, 0.5),
+                                fontWeight: 100,
+                            })}
                         >
                             Watch. Create. Belong.
                         </Box>
