@@ -9,6 +9,8 @@ import {
 import { SideNavItem } from './components/sideNav';
 import { SIDE_NAV_ITEMS } from '@/data';
 import { CommonToolPicker } from '@/components/common';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface SideNavProps {
     isExpanded: boolean;
@@ -16,6 +18,8 @@ interface SideNavProps {
 }
 
 export default function SideNav({ isExpanded, setIsExpanded }: SideNavProps) {
+
+    const pathName = usePathname();
     return (
         <>
             <Stack
@@ -78,8 +82,14 @@ export default function SideNav({ isExpanded, setIsExpanded }: SideNavProps) {
                                         }}
                                     >
                                         <Stack spacing={2}>
-                                            {section.items.map((item) => (
-                                                <Box key={item.name}>
+                                            {section.items.map((item) => {
+                                                const href = 'href' in item ? item.href : undefined
+                                                const isActive = href
+                                                    ? href === '/'
+                                                        ? pathName === '/'
+                                                        : pathName.startsWith(href)
+                                                    : false
+                                                const itemContent = (
                                                     <CommonToolPicker
                                                         name={item.name}
                                                         disabled={isExpanded || item.name === 'Collapse'}
@@ -87,6 +97,7 @@ export default function SideNav({ isExpanded, setIsExpanded }: SideNavProps) {
                                                         <SideNavItem
                                                             isExpanded={isExpanded}
                                                             onToggle={() => setIsExpanded((expanded) => !expanded)}
+                                                            isActive={isActive}
                                                             name={item.name}
                                                             icon={<item.icon />}
                                                             iconToggle={
@@ -96,9 +107,26 @@ export default function SideNav({ isExpanded, setIsExpanded }: SideNavProps) {
                                                             }
                                                         />
                                                     </CommonToolPicker>
-                                                </Box>
+                                                )
 
-                                            ))}
+                                                return 'href' in item ? (
+                                                    <Link
+                                                        href={item.href}
+                                                        key={item.name}
+                                                        style={{
+                                                            textDecoration: 'none',
+                                                            color: 'inherit',
+                                                        }}
+
+                                                    >
+                                                        {itemContent}
+                                                    </Link>
+                                                ) : (
+                                                    <Box key={item.name}>
+                                                        {itemContent}
+                                                    </Box>
+                                                )
+                                            })}
                                         </Stack>
                                     </Box>
                                 </Box>

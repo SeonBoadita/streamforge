@@ -23,18 +23,22 @@ export const SIDE_NAV_ITEMS = [
         items: [
             {
                 name: 'Home',
+                href: '/',
                 icon: HomeOutlinedIcon,
             },
             {
                 name: 'Live',
+                href: '/live',
                 icon: CircleIcon,
             },
             {
                 name: 'Videos',
+                href: '/videos',
                 icon: PlayCircleIcon,
             },
             {
                 name: 'Shorts',
+                href: '/shorts',
                 icon: BoltIcon,
             },
         ],
@@ -43,10 +47,12 @@ export const SIDE_NAV_ITEMS = [
         items: [
             {
                 name: 'Community',
+                href: '/community',
                 icon: GroupsOutlinedIcon,
             },
             {
                 name: 'Leaderboard',
+                href: '/leaderboard',
                 icon: LeaderboardOutlinedIcon,
             },
         ],
@@ -55,12 +61,14 @@ export const SIDE_NAV_ITEMS = [
         items: [
             {
                 name: 'Profile',
+                href: '/profile',
                 icon: PersonOutlineOutlinedIcon,
             },
             {
                 name: 'Settings',
+                href: '/settings',
                 icon: SettingsOutlinedIcon,
             },
         ],
     },
-];
+]

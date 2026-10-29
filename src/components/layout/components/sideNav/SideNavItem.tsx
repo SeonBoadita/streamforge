@@ -5,12 +5,13 @@ import { alpha, Box, IconButton, Stack } from '@mui/material'
 interface SideNavItemProps {
     isExpanded: boolean;
     onToggle: () => void;
+    isActive?: boolean;
     name: string;
     icon: React.ReactNode;
     iconToggle?: React.ReactNode;
 }
 
-export default function SideNavItem({ isExpanded, onToggle, name, icon, iconToggle }: SideNavItemProps) {
+export default function SideNavItem({ isExpanded, onToggle, isActive = false, name, icon, iconToggle }: SideNavItemProps) {
     return (
         <Stack
             onClick={name === 'Collapse' ? onToggle : undefined}
@@ -26,6 +27,8 @@ export default function SideNavItem({ isExpanded, onToggle, name, icon, iconTogg
                 position: 'relative',
                 borderRadius: 2,
                 transition: 'background-color 0.15s ease-in-out',
+                backgroundColor: isActive ? alpha(theme.palette.primary.main, 0.1) : 'transparent',
+                color: isActive ? 'common.black' : 'text.primary',
                 "&:hover": {
                     backgroundColor: alpha(theme.palette.primary.main, 0.1),
                 },
