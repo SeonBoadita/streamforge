@@ -1,9 +1,18 @@
 import { Box, Stack } from '@mui/material'
 import { typography } from '@/themes/typography'
+import Link from 'next/link'
 
 export default function Logo() {
     return (
-        <>
+        <Link
+            href="/"
+            aria-label="Go to home"
+            style={{
+                display: 'inline-flex',
+                color: 'inherit',
+                textDecoration: 'none',
+            }}
+        >
             <Stack
                 direction="row"
                 sx={{
@@ -51,6 +60,6 @@ export default function Logo() {
                     Forge
                 </Box>
             </Stack>
-        </>
+        </Link>
     )
 }
