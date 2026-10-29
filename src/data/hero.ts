@@ -22,6 +22,7 @@ export const HERO_DATA = [
         cta: {
             text: 'Explore Trending',
         },
+        href: '/trending',
     },
 
     {
@@ -47,6 +48,7 @@ export const HERO_DATA = [
         cta: {
             text: 'Explore Videos',
         },
+        href: '/videos',
     },
 
     {
@@ -72,6 +74,7 @@ export const HERO_DATA = [
         cta: {
             text: 'Watch Live',
         },
+        href: '/live',
     },
 
     {
@@ -97,5 +100,6 @@ export const HERO_DATA = [
         cta: {
             text: 'Explore Shorts',
         },
+        href: '/shorts',
     },
 ] as const;

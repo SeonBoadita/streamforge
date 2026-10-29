@@ -241,6 +241,7 @@ export default function Hero() {
                                     <CommonButton
                                         endIcon={<ChevronRightIcon />}
                                         endIconEnabled={true}
+                                        href={HERO_DATA[currentIndex].href}
                                         text={HERO_DATA[currentIndex].cta.text}
                                     />
                                 </Box>
