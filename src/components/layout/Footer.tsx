@@ -1,7 +1,7 @@
 import { Box, Stack } from '@mui/material'
 import { alpha } from '@mui/material/styles'
 import React from 'react'
-import { FooterBottom, FooterBrand, FooterLinks, FooterNewsLetter } from './components/footer'
+import { FooterBottom, FooterBottomText, FooterBrand, FooterLinks, FooterNewsLetter } from './components/footer'
 
 export default function Footer() {
     return (
@@ -38,8 +38,13 @@ export default function Footer() {
                     sx={{
                         width: '100%',
                         minHeight: 'inherit',
-                        padding: "20px 30px",
-                        gap: 25,
+                        padding: {
+                            lg: "20px 30px",
+                            md: "20px 30px",
+                            sm: "0 20px",
+                            xs: "0 20px",
+                        },
+                        gap: 15,
                         alignItems: 'center',
                         justifyContent: 'space-between',
                     }}
@@ -104,16 +109,7 @@ export default function Footer() {
                     </Stack>
                     <FooterBottom />
                 </Stack>
-                {/* <Image
-                src="/images/streamforge-logo.svg"
-                alt="StreamForge Logo"
-                width={100}
-                height={50}
-                style={{
-                    position: 'absolute',
-                    bottom: '10px',
-                }} 
-                ></Image> */}
+                <FooterBottomText />
             </Box>
         </>
     )
